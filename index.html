@@ -4,24 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Календарь</title>
+    <title>Интерактивный календарь событий</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1></h1>
-        <div class="previous-month"><img src="src/next.png"></div>
-        <div class="next-month"><img src="src/next.png"></div>
-    </header>
-    <main class="field-container">
-        <div class="events">
-            <div class="button create-button">Создать</div>
-            <div class="button">Информация</div>
-            <div class="button">Информация</div>
+    <header class="calendar-header">
+        <h1>Календарь событий</h1>
+        <div class="month-navigation">
+            <button class="nav-button previous-month" aria-label="Предыдущий месяц">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="current-month" id="currentMonth"></div>
+            <button class="nav-button next-month" aria-label="Следующий месяц">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
-        <div class="calendar"></div>
+    </header>
+    
+    <main class="field-container">
+        <aside class="sidebar">
+            <div class="events-panel">
+                <button class="button create-button" id="createEvent">
+                    <i class="fas fa-plus"></i> Создать событие
+                </button>
+                <button class="button" id="viewAllEvents">
+                    <i class="fas fa-list"></i> Все события
+                </button>
+                <button class="button" id="clearAllEvents">
+                    <i class="fas fa-trash-alt"></i> Очистить всё
+                </button>
+            </div>
+            <div class="selected-date-info">
+                <h3><i class="far fa-calendar-check"></i> Выбранная дата</h3>
+                <div class="date-display"></div>
+                <div class="events-list"></div>
+            </div>
+        </aside>
+        
+        <section class="calendar-container">
+            <div class="calendar" id="calendar"></div>
+        </section>
     </main>
-    <footer></footer>
+    
+    <footer class="calendar-footer">
+
+    </footer>
+    
+    <!-- Модальное окно для создания события -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <!-- Содержимое будет генерироваться JS -->
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
